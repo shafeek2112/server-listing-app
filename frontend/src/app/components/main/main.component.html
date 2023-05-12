@@ -1,0 +1,173 @@
+<section class="main">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <!-- border-b border-gray-200 -->
+    <div class="flex items-baseline justify-between pb-6 pt-24">
+      <h1 class="text-4xl font-bold tracking-tight text-slateText">Server Information</h1>
+      <div class="flex-center">
+        <button type="button" class="-m-2 ml-5 p-2 text-gray-400 hover:text-gray-500 sm:ml-7" (click)="toggleViewMode()">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" *ngIf="isListView">
+            <path fill="currentColor" fill-rule="evenodd" d="M2.99721 3.33789C2.47889 3.33789 2.05066 3.76612 2.05066 4.28444V7.17749H8.35022H15.6498H21.9493V4.28444C21.9493 3.76612 21.5211 3.33789 21.0028 3.33789H2.99721ZM9.35022 9.17754H14.6498V13.4198H9.35022V9.17754ZM9.35022 15.4198H14.6498V19.6621H9.35022V15.4198ZM8.35022 21.6621H15.6498H21.0028C22.6257 21.6621 23.9493 20.3385 23.9493 18.7156V14.4198V8.17754V8.17749V4.28444C23.9493 2.66155 22.6257 1.33789 21.0028 1.33789H2.99721C1.37432 1.33789 0.0506592 2.66155 0.0506592 4.28444V8.17749V8.17754V14.4198V18.7156C0.0506592 20.3385 1.37432 21.6621 2.99721 21.6621H8.35022ZM21.9493 13.4198V9.17754H16.6498V13.4198H21.9493ZM16.6498 15.4198H21.9493V18.7156C21.9493 19.2339 21.5211 19.6621 21.0028 19.6621H16.6498V15.4198ZM2.05066 9.17754H7.35022V13.4198H2.05066V9.17754ZM2.05066 15.4198H7.35022V19.6621H2.99721C2.47889 19.6621 2.05066 19.2339 2.05066 18.7156V15.4198Z" clip-rule="evenodd"/>
+          </svg>
+
+          <svg xmlns="http://www.w3.org/2000/svg" *ngIf="!isListView" class="h-5 w-5" viewBox="0 0 24 24">
+            <g>
+              <rect x="3" y="3" width="18" height="4" rx="1.5" style="fill: currentColor"/>
+              <rect x="3" y="10" width="18" height="4" rx="1.5" style="fill: currentColor"/>
+              <rect x="3" y="17" width="18" height="4" rx="1.5" style="fill: currentColor"/>
+            </g>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <app-filter [filters]="filters" (filtersChanged)="onFiltersChanged($event)"></app-filter>
+
+    <section class="pb-24 pt-6">
+      <div class="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-4">
+        <!-- Product -->
+        <div class="lg:col-span-4">
+          <div class="product-list">
+
+            <!-- Common Alert -->
+            <app-error-alert [errorMessage]="errorMessage" (close)="errorMessage = ''"></app-error-alert>
+            <div *ngIf="systems && systems.length > 0 && isListView">
+              <div class="rounded-lg bg-white overflow-hidden shadow mb-2" *ngFor="let system of systems">
+                <div class="px-6 pt-2">
+                  <div class="flex items-center justify-end compare-check">
+                    <input id="system-{{system.id}}"
+                    type="checkbox" class="h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500" (change)="onCompare(system, $any($event.target)?.checked)">
+                    <label for="system-{{system.id}}" class="ml-3 text-sm font-medium text-gray-500 whitespace-nowrap">Compare </label>
+                  </div>
+                  <dt class="text-sm font-medium text-gray-500">Model</dt>
+                  <dd class="mt-1 flex justify-between items-baseline md:block lg:flex">
+                    <div class="flex items-baseline text-lg font-semibold text-gray-900">
+                      {{system.model}}
+                    </div>
+                  </dd>
+                </div>
+                <dl class="grid grid-cols-1 rounded-lg bg-white overflow-hidden shadow md:grid-cols-4">
+                  <div class="px-6 py-4">
+                    <dt class="text-sm font-medium text-gray-500">Storage</dt>
+                    <dd class="mt-1 flex justify-between items-baseline md:block lg:flex">
+                      <div class="flex items-baseline text-lg font-semibold text-gray-900">
+                        {{system.hdd}}
+                      </div>
+                    </dd>
+                  </div>
+
+                  <div class="px-6 py-4">
+                    <dt class="text-sm font-medium text-gray-500">RAM</dt>
+                    <dd class="mt-1 flex justify-between items-baseline md:block lg:flex">
+                      <div class="flex items-baseline text-lg font-semibold text-gray-900">
+                        {{system.ram}}
+                      </div>
+                    </dd>
+                  </div>
+
+                  <div class="px-6 py-4">
+                    <dt class="text-sm font-medium text-gray-500">Location</dt>
+                    <dd class="mt-1 flex justify-between items-baseline md:block lg:flex">
+                      <div class="flex items-baseline text-lg font-semibold text-gray-900">
+                        {{system.location}}
+                      </div>
+                    </dd>
+                  </div>
+
+                  <div class="px-6 py-4">
+                    <dt class="text-sm font-medium text-gray-500">Price</dt>
+                    <dd class="mt-1 flex justify-between items-baseline md:block lg:flex">
+                      <div class="flex items-baseline text-lg font-semibold text-gray-900">
+                        {{system.price}}
+                      </div>
+                    </dd>
+                  </div>
+                </dl>
+              </div>
+            </div>
+
+            <div *ngIf="systems && systems.length > 0 && !isListView">
+              <div class="-mx-4 overflow-hidden shadow ring-1 ring-black ring-opacity-5 sm:-mx-6 md:mx-0 md:rounded-lg">
+                <table class="min-w-full divide-y divide-gray-300">
+                  <thead class="bg-gray-50">
+                    <tr>
+                      <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6">Model</th>
+                      <th scope="col" class="hidden px-3 py-3.5 text-left text-sm font-semibold text-gray-900 lg:table-cell">Storage</th>
+                      <th scope="col" class="hidden px-3 py-3.5 text-left text-sm font-semibold text-gray-900 sm:table-cell">RAM</th>
+                      <th scope="col" class="hidden px-3 py-3.5 text-left text-sm font-semibold text-gray-900 sm:table-cell">Location</th>
+                      <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Price</th>
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-gray-200 bg-white">
+                    <tr *ngFor="let system of systems">
+                      <td class="w-full max-w-0 py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:w-auto sm:max-w-none sm:pl-6">
+                        {{system.model}}
+                        <dl class="font-normal lg:hidden">
+                          <dt class="sr-only">RAM</dt>
+                          <dd class="mt-1 truncate text-gray-700">{{system.ram}}</dd>
+                          <dt class="sr-only sm:hidden">Storage</dt>
+                          <dd class="mt-1 truncate text-gray-500 sm:hidden">{{system.hdd}}</dd>
+                          <dt class="sr-only sm:hidden">Location</dt>
+                          <dd class="mt-1 truncate text-gray-500 sm:hidden">{{system.location}}</dd>
+                          <dt class="sr-only sm:hidden">Price</dt>
+                          <dd class="mt-1 truncate text-gray-500 sm:hidden">{{system.price}}</dd>
+                        </dl>
+                      </td>
+                      <td class="hidden px-3 py-4 text-sm text-gray-500 lg:table-cell">{{system.hdd}}</td>
+                      <td class="hidden px-3 py-4 text-sm text-gray-500 sm:table-cell">{{system.ram}}</td>
+                      <td class="hidden px-3 py-4 text-sm text-gray-500 sm:table-cell">{{system.location}}</td>
+                      <td class="px-3 py-4 text-sm text-gray-500">{{system.price}}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- No System Found -->
+            <div *ngIf="systems.length === 0">
+              <div class="mt-12 flex items-center justify-center h-full">
+                <div class="text-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="mx-auto h-12 w-12 stroke-current text-gray-400" viewBox="0 0 14 14">
+                    <g>
+                      <rect x="0.5" y="2" width="13" height="9" rx="0.5" style="fill: none;stroke: #000000;stroke-linecap: round;stroke-linejoin: round"/>
+                      <line x1="6" y1="11" x2="5" y2="13.5" style="fill: none;stroke: #000000;stroke-linecap: round;stroke-linejoin: round"/>
+                      <line x1="8" y1="11" x2="9" y2="13.5" style="fill: none;stroke: #000000;stroke-linecap: round;stroke-linejoin: round"/>
+                      <line x1="4" y1="13.5" x2="10" y2="13.5" style="fill: none;stroke: #000000;stroke-linecap: round;stroke-linejoin: round"/>
+                      <line x1="9" y1="8.5" x2="5" y2="4.5" style="fill: none;stroke: #000000;stroke-linecap: round;stroke-linejoin: round"/>
+                      <line x1="9" y1="4.5" x2="5" y2="8.5" style="fill: none;stroke: #000000;stroke-linecap: round;stroke-linejoin: round"/>
+                    </g>
+                  </svg>
+                  <p class="mt-2 text-sm font-medium text-gray-900">No systems found.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <nav class="mt-8 px-4 py-3 flex items-center justify-between border-t border-gray-200 sm:px-6" aria-label="Pagination">
+            <div class="hidden sm:block">
+              <p class="text-sm text-gray-700">
+                Showing
+                <span class="font-medium">{{pagination.startNumber}}</span>
+                to
+                <span class="font-medium">{{pagination.endNumber}}</span>
+                of
+                <span class="font-medium">{{pagination.totalRecords}}</span>
+                results
+              </p>
+            </div>
+            <div class="flex-1 flex justify-between sm:justify-end">
+              <button class="relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50" (click)="onPrevPage()" [disabled]="pagination.page === 1" *ngIf="pagination.totalPages > 1"> Previous </button>
+              <button *ngIf="pagination.page < pagination.totalPages" class="ml-3 relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50" (click)="onNextPage()"> Next </button>
+            </div>
+          </nav>
+
+
+
+        </div>
+      </div>
+    </section>
+  </div>
+</section>
+
+<div *ngIf="compareModalOpen">
+  <app-compare [compareTwoSystems]="compareTwoSystems" (closeCompareModal)="onCloseCompareModal()"></app-compare>
+</div>

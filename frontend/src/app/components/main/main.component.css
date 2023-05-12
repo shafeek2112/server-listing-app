@@ -1,0 +1,15 @@
+.-my-3 {
+  margin-top: -0.75rem;
+  margin-bottom: -0.75rem;
+}
+
+.flow-root {
+  display: flow-root;
+}
+
+@media (min-width: 1024px) {
+  .lg\:block {
+      display: block;
+  }
+}
+

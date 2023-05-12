@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" width="30" viewBox="0 0 14 14">
+  <g id="transparent">
+    <rect id="Rectangle 55" width="8.5" height="8.5" x="5" y="5" fill="#fffbff" rx="1"/>
+    <rect id="Rectangle 56" width="8.5" height="8.5" x="5" y="5" stroke="#1c1b1e" stroke-linecap="round" stroke-linejoin="round" rx="1"/>
+    <rect id="Rectangle 53" width="8.5" height="8.5" x=".5" y=".5" stroke="#1c1b1e" stroke-linecap="round" stroke-linejoin="round" rx="1"/>
+    <path id="Vector 719" stroke="#1c1b1e" stroke-linecap="round" stroke-linejoin="round" d="M8.99988 6L3.5 0.5"/>
+    <path id="Vector 720" stroke="#1c1b1e" stroke-linecap="round" stroke-linejoin="round" d="M5.99951 8.99951L0.5 3.5"/>
+  </g>
+</svg>
