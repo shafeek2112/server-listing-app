@@ -18,6 +18,12 @@ Please make sure you have PHP version 8.1 or higher installed on your system.
 3. Run `composer install` to install the dependencies
 4. Copy `.env.example` to `.env` and configure the environment variables as needed
 
+If the `composer install` command throws an error, please ensure that the following extensions are enabled in your `php.ini` file located in your PHP installation folder:
+
+- extension=openssl
+- extension=fileinfo
+- extension=gd
+
 ## Running Test Cases
 
 To run the test cases, execute the following command:

@@ -2,9 +2,14 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.0.
 
-## Development server
+## Development Build
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+For the development build, run `ng serve` or `ng build` and update the backend API endpoint in the `src/environments/environment.development.ts` file. Navigate to `http://localhost:4200/`.
+
+## Production Build
+
+For the production build, run `ng serve --configuration=production` or `ng build --configuration=production` and update the backend API endpoint in the `src/environments/environment.production.ts` file.
+
 
 ## Code scaffolding
 

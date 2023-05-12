@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Integration;
+namespace Tests\integration;
 
 use App\Repositories\ServerRepository;
 use App\Services\ExcelService;

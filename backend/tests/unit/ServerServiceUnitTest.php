@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Unit;
+namespace Tests\unit;
 
 use App\Services\ServerService;
 use App\Repositories\ServerRepository;

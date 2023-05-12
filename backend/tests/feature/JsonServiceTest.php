@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Unit;
+namespace Tests\feature;
 
 use App\Services\JsonService;
 use Illuminate\Support\Facades\Config;
