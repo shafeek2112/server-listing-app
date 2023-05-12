@@ -96,7 +96,7 @@ class ServerRepository
             try {
                 $stream = fopen($fil, 'r');
             } catch (\Exception $e) {
-                throw new \Exception("Something wrong with the JSON file.");
+                throw new \Exception("Something wrong with the JSON file or JSON file is not found.");
             }
             //Use json-streaming-parser for low memory usage, scalable and event driven parsing.
             try {

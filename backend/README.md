@@ -36,12 +36,15 @@ http://localhost:8000/api/servers
 
 Replace the query parameters with your desired filter values.
 
+**Note**: If you see a "Something wrong with the JSON file or JSON file is not found." error, it means that the JSON file is missing. Please refer to the "Data Setup" section below to generate the JSON file.
+
+
 
 ## Running Test Cases
 
 PHPUnit requires the "dom", "json", "libxml", "mbstring", "tokenizer", "xml", "xmlwriter" extensions.
 
-Before run the test cases please make sure the application is running and the following PHP extensions are installed and enabled:
+Before run the test cases please make sure the application is running and the following PHP extensions are installed and enabled in your `php.ini` file located in your PHP installation folder:
 
 - extension=dom
 - extension=json

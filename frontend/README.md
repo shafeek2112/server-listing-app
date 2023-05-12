@@ -20,10 +20,6 @@ For the development build, run `ng serve` or `ng build` and update the backend A
 
 For the production build, run `ng serve --configuration=production` or `ng build --configuration=production` and update the backend API endpoint in the `src/environments/environment.production.ts` file.
 
-## Running Test Cases
-
-To run the test cases, execute the following command:
-
 ## Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
