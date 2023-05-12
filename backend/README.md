@@ -36,8 +36,7 @@ http://localhost:8000/api/servers
 
 Replace the query parameters with your desired filter values.
 
-**Note**: If you see a "Something wrong with the JSON file or JSON file is not found." error, it means that the JSON file is missing. Please refer to the "Data Setup" section below to generate the JSON file.
-
+**Note**: If you see a "Something wrong with the JSON file or JSON file is not found." error, it means that the JSON file is missing. Please navigate to this link http://localhost:8000/api/servers/json-file-generate in the browser to generate the JSON file from the Excel data, refer to the "Data Setup" section below for more details on data seup.
 
 
 ## Running Test Cases
