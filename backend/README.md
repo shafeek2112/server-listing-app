@@ -9,6 +9,7 @@ This is a Lumen backend project that provides an API for searching and filtering
 - Lumen 10.0
 - Composer
 
+Please make sure you have PHP version 8.1 or higher installed on your system.
 
 ## Installation
 
