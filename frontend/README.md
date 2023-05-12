@@ -1,23 +1,36 @@
-# ServerInfo
+# Frontend Application - Angular
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.0.
+This folder contains the Angular frontend application for the server filtering project.
 
-## Development Build
+## Requirements
 
-For the development build, run `ng serve` or `ng build` and update the backend API endpoint in the `src/environments/environment.development.ts` file. Navigate to `http://localhost:4200/`.
+- Node.js (preferably the latest LTS version)
+- Angular CLI (^16.0.0)
 
-## Production Build
+## Installation
+
+1. Navigate to the `frontend` folder.
+2. Run `npm install` to install the required dependencies.
+
+## Development
+
+For the development build, run `ng serve` or `ng build` and update the backend API endpoint in the `src/environments/environment.development.ts` file.
+
+## Production
 
 For the production build, run `ng serve --configuration=production` or `ng build --configuration=production` and update the backend API endpoint in the `src/environments/environment.production.ts` file.
 
+## Running Test Cases
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+To run the test cases, execute the following command:
 
 ## Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+
+## Code scaffolding
+
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
 ## Running unit tests
 
@@ -45,3 +58,8 @@ Karma is a popular testing tool for Angular applications. Its advantages include
 ### Jasmine
 
 Jasmine is a behavior-driven testing framework for JavaScript that's commonly used with Angular. Its advantages include a clear and intuitive syntax, easy-to-read test outputs, and integration with other tools like Karma for test execution. Additionally, Jasmine supports a variety of testing features like asynchronous testing, test spies, and code coverage analysis. Overall, Jasmine can help developers write comprehensive and effective tests for their Angular applications.
+
+
+## License
+
+This project is licensed under the MIT License. See the LICENSE file for details.

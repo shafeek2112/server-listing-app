@@ -24,13 +24,6 @@ If the `composer install` command throws an error, please ensure that the follow
 - extension=fileinfo
 - extension=gd
 
-## Running Test Cases
-
-To run the test cases, execute the following command:
-
-`vendor/bin/phpunit`
-
-
 ## Usage
 
 Start the Lumen development server:
@@ -42,6 +35,36 @@ Access the API endpoint for filtered server data:
 http://localhost:8000/api/servers
 
 Replace the query parameters with your desired filter values.
+
+
+## Running Test Cases
+
+PHPUnit requires the "dom", "json", "libxml", "mbstring", "tokenizer", "xml", "xmlwriter" extensions.
+
+Before run the test cases please make sure the application is running and the following PHP extensions are installed and enabled:
+
+- extension=dom
+- extension=json
+- extension=libxml
+- extension=mbstring
+- extension=tokenizer
+- extension=xml
+- extension=xmlwriter
+
+To run the test cases, use the following command depending on your operating system:
+
+- For Windows:
+    ```
+    vendor\bin\phpunit
+    ```
+
+- For macOS and Linux:
+    ```
+    vendor/bin/phpunit
+    ```
+
+This will execute all the test cases in the backend Lumen project.
+
 
 
 ## Data Setup
